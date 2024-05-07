@@ -18,8 +18,8 @@ fn window_conf() -> Conf {
 }
 
 async fn game() {
-    clear_background(BLACK);
     loop {
+        clear_background(BLACK);
         if is_mouse_button_pressed(MouseButton::Left) {
             let mouse_pos = mouse_position();
             draw_circle_lines(mouse_pos.0, mouse_pos.1, 20.0, 1.0, RED);
