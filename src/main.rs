@@ -9,12 +9,10 @@ use player::Player;
 
 const WINDOW_HEIGHT: usize = 1000;
 const WINDOW_WIDTH: usize = 1000;
-const CELL_SIZE: usize = 45;
-const GRID_THICKNESS: f32 = 2.0;
-const SCREEN_WIDTH: usize = 15;
-const SCREEN_HEIGHT: usize = 20;
-const FPS: f32 = 60.0;
-const TIME_PER_FRAME: f32 = 1.0 / FPS;
+const CELL_SIZE: usize = 50;
+const GRID_THICKNESS: f32 = 3.0;
+const SCREEN_WIDTH: usize = 12;
+const SCREEN_HEIGHT: usize = 16;
 
 struct GameConfig {
     bg_color: Color,
@@ -63,10 +61,6 @@ async fn game() {
         draw_text(get_fps().to_string().as_str(), 10.0, 40.0, 40.0, WHITE);
         player.draw();
         player.handle_controls(delta);
-
-        sleep(Duration::from_millis(
-            ((TIME_PER_FRAME - delta) * 1000.0) as u64,
-        ));
 
         next_frame().await
     }
